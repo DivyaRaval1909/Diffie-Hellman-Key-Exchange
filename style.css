@@ -1,0 +1,336 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .exchange-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin: 30px 0;
+        }
+        .person {
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .person:hover {
+            transform: scale(1.05);
+        }
+        .person img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #4CAF50;
+            padding: 5px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .thought-cloud {
+            margin: 20px auto;
+            padding: 15px;
+            background: #e3f2fd;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        .attacker {
+            color: #d32f2f;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .calculation {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .calculation:hover {
+            background: #e8f5e9;
+            transform: translateY(-2px);
+        }
+        .common-calculation {
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .input-group {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        input {
+            width: 200px;
+            padding: 12px;
+            margin: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .hidden {
+            display: none;
+        }
+        .key-symbol {
+            font-size: 28px;
+            color: #4CAF50;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .help-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: left;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .step.active {
+            background: #4CAF50;
+            color: white;
+        }
+        .visualization {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .number-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .number-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #666;
+            animation: pulse 1s infinite;
+        }
+        
+        .explanation-box {
+            margin: 10px 0;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            text-align: left;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .security-meter {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .security-level {
+            height: 100%;
+            background: #4CAF50;
+            width: 0%;
+            transition: width 1s ease;
+        }
+        
+        .tutorial-button {
+            background: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        
+        .tutorial-button:hover {
+            background: #1976D2;
+        }
+        
+        .highlight {
+            animation: highlight 1s ease;
+        }
+        
+        @keyframes highlight {
+            0% { background: #fff; }
+            50% { background: #ffeb3b; }
+            100% { background: #fff; }
+        }
+        
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        
+        .security-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .security-card {
+            flex: 1;
+            margin: 0 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .security-card h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .security-card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .attack-simulation {
+            margin: 20px 0;
+            padding: 20px;
+            background: #ffebee;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background: #f5f5f5;
+        }
+        
+        .comparison-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .key-history {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .key-history-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+   

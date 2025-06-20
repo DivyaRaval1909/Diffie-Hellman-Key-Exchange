@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diffie-Hellman Key Exchange</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <h2>Diffie-Hellman Key Exchange</h2>
+        
+        <p>Enter values for Prime Number (p) and Primitive Root (g):</p>
+        <div class="input-group">
+            <input type="number" id="prime" placeholder="Enter prime number (p)" min="2">
+            <input type="number" id="root" placeholder="Enter primitive root (g)" min="2">
+        </div>
+        <button onclick="calculateKeys()">Compute Keys</button>
+        
+        <div class="step-indicator">
+            <div class="step" id="step1">1</div>
+            <div class="step" id="step2">2</div>
+            <div class="step" id="step3">3</div>
+            <div class="step" id="step4">4</div>
+        </div>
+
+        <div class="exchange-container">
+            <div class="person">
+                <img src="https://cdn-icons-png.flaticon.com/512/146/146031.png" alt="Tathya">
+                <p>Tathya</p>
+                <div id="alice-output" class="calculation"></div>
+            </div>
+            <div class="common-calculation" id="common-output"></div>
+            <div class="person">
+                <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Divya">
+                <p>Divya</p>
+                <div id="bob-output" class="calculation"></div>
+            </div>
+        </div>
+
+        <div class="thought-cloud" id="thought-cloud">
+            <p>"Tathya and Divya are exchanging keys securely... The attacker sees numbers but can't compute the secret!"</p>
+        </div>
+
+        <div id="attacker-section" class="hidden">
+            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="Attacker" width="100">
+            <p class="attacker">Attacker: "I see some numbers... but I can't figure out the secret! 😵"</p>
+        </div>
+
+        <div class="visualization">
+            <h3>Key Exchange Visualization</h3>
+            <div class="number-flow">
+                <div class="number-box" id="number1">p</div>
+                <div class="arrow">→</div>
+                <div class="number-box" id="number2">g</div>
+                <div class="arrow">→</div>
+                <div class="number-box" id="number3">A</div>
+                <div class="arrow">→</div>
+                <div class="number-box" id="number4">B</div>
+                <div class="arrow">→</div>
+                <div class="number-box" id="number5">S</div>
+            </div>
+            <div class="security-meter">
+                <div class="security-level" id="security-level"></div>
+            </div>
+            <div class="explanation-box" id="explanation"></div>
+        </div>
+
+        <div class="help-section">
+            <h3>How it works:</h3>
+            <ol>
+                <li>Tathya and Divya agree on a prime number (p) and a primitive root (g)</li>
+                <li>Each chooses a private number (a for Tathya, b for Divya)</li>
+                <li>They compute their public keys: A = g^a mod p and B = g^b mod p</li>
+                <li>They exchange public keys and compute the shared secret: S = B^a mod p = A^b mod p</li>
+            </ol>
+            <button class="tutorial-button" onclick="startTutorial()">Start Tutorial</button>
+        </div>
+
+        <div class="security-info">
+            <div class="security-card">
+                <h4>Key Strength</h4>
+                <p>Prime Size: <span id="prime-size">-</span> bits</p>
+                <p>Key Space: <span id="key-space">-</span></p>
+                <p>Brute Force Time: <span id="brute-force">-</span></p>
+            </div>
+            <div class="security-card">
+                <h4>Security Analysis</h4>
+                <p>Discrete Log Complexity: <span id="discrete-log">-</span></p>
+                <p>Man-in-the-Middle Risk: <span id="mitm-risk">-</span></p>
+                <p>Forward Secrecy: <span id="forward-secrecy">-</span></p>
+            </div>
+        </div>
+        
+        <div class="attack-simulation" id="attack-simulation">
+            <h3>Attack Simulation</h3>
+            <div class="comparison-table">
+                <table>
+                    <tr>
+                        <th>Attack Type</th>
+                        <th>Complexity</th>
+                        <th>Success Rate</th>
+                    </tr>
+                    <tr>
+                        <td>Brute Force</td>
+                        <td>O(2^n)</td>
+                        <td>0.0001%</td>
+                    </tr>
+                    <tr>
+                        <td>Man-in-the-Middle</td>
+                        <td>O(1)</td>
+                        <td>100% (if not authenticated)</td>
+                    </tr>
+                    <tr>
+                        <td>Discrete Log</td>
+                        <td>O(e^(√(n log n)))</td>
+                        <td>0.001%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="key-history" id="key-history">
+            <h4>Key Exchange History</h4>
+        </div>
+    </div>
+
+   <script src="./script.js"></script> 
+</body>
+</html>
